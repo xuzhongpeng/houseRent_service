@@ -1,0 +1,42 @@
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+
+/.settings/  
+/target/  
+  
+# built application files  
+*.apk  
+*.ap_  
+  
+# files for the dex VM  
+*.dex  
+  
+# Java class files  
+*.class  
+  
+# generated files  
+bin/  
+gen/  
+  
+# Eclipse project files  
+.classpath  
+.project  
+.DS_Store  

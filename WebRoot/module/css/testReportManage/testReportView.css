@@ -1,0 +1,45 @@
+@CHARSET "UTF-8";
+
+body {
+	width: 98%;
+	min-width: 1100px;
+}
+
+.content,.sampleInfo,.sampleInfoDiv {
+	width: 100%;
+}
+
+.hrStyle {
+	border: 1px solid black;
+}
+
+.title label {
+	font-family: cursive;
+	font-size: larger;
+}
+
+.clientInfo .row {
+	margin-top: 10px
+}
+
+.clientInfo label {
+	width: 25%;
+}
+
+.clientInfo span {
+	width: 65%
+}
+
+.sampleInfoDiv {
+	margin: 10px auto;
+}
+
+#sampleInfoTable thead,#testReportFile thead {
+	background-color: #364760;
+	color: #fff;
+	font-size: blod 14px;
+}
+
+.bs-checkbox {
+	vertical-align: middle !important;
+}

@@ -1,0 +1,107 @@
+@CHARSET "UTF-8";
+
+.form-control {
+	display: inline;
+	width: 70%;
+}
+
+.content {
+	width: 100%;
+	min-width: 1100px;
+}
+
+.searchArea {
+	width: 98%;
+	margin-top: 10px;
+	margin-bottom: 10px
+}
+
+.row {
+	margin-bottom: 10px;
+}
+
+.row label {
+	width: 20%;
+	min-wdith: 80px;
+}
+
+.timeLabelDiv {
+	float: left;
+	height: 34px;
+	margin-right: 4px;
+	width: 20%;
+}
+
+.timeLabelDiv label {
+	margin-top: 7px;
+	min-width: 80px;
+}
+
+.timeChooseDiv {
+	width: 70%;
+	margin-top: 0px;
+}
+
+.input-group-addon {
+	background-color: #fff;
+}
+
+#selectPart {
+	width: 70%;
+	text-align: center;
+}
+
+.buttonGroup {
+	background-color: rgb(232, 243, 249);
+	width: 100%;
+	margin: 20px 0 20px 0;
+	padding: 20px 0 20px 0;
+}
+
+.buttonGroup button:hover {
+	color: #fff;
+	background-color: rgb(255, 173, 51);
+}
+
+.uploadFileText {
+	width: 96%;
+	margin: 10px auto;
+}
+
+.uploadFileText label {
+	float: left;
+	width: 20%;
+	margin-top: 10px;
+}
+
+.uploadFileText input {
+	width: 75% !important;
+}
+
+#recoverReport textarea {
+	width: 75%;
+	height: 100px;
+	resize: none;
+	overflow-y: scroll;
+}
+
+#recoverReport .form-control {
+	margin-top: 10px;
+}
+
+.receiveManLabel {
+	margin-top: 5px;
+}
+
+#testReportID {
+	display: none;
+}
+
+.bs-checkbox {
+	vertical-align: middle !important;
+}
+
+label {
+	font-size: 16px;
+	color: #333;
+}

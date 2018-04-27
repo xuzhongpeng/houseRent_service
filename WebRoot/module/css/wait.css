@@ -1,0 +1,19 @@
+@CHARSET "UTF-8";
+
+#mask {
+	background-color: #CFCFCF;
+	opacity: 0.5;
+	filter: alpha(opacity =   50);
+	left: 0;
+	top: 0;
+	z-index: 1000;
+}
+
+#wait_img {
+	z-index: 1001;
+}
+
+#mask,#wait_img {
+	display: none;
+	position: absolute;
+}
