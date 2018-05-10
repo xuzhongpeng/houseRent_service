@@ -48,6 +48,9 @@ public class RoomService extends SearchService implements IRoomService{
 	@Override
 	public Map<String, Object> getWithPaging(int limit, int offset,
 			String order, String sort, String searchText) {
+		if(searchText.indexOf("'")!=-1){
+			searchText.replace("'", "");
+		}
 		int index = limit;//每行显示条数
 		int pageNum = offset ;//页码
 		String baseEntity = "room";//查询的条件和表
@@ -172,6 +175,81 @@ public class RoomService extends SearchService implements IRoomService{
 		}
 		
 	}
-	
+	@Override
+	public Map<String, Object> getWithCondition(String searchText,String Area,String rent,String type,String houseSize) {
+		
+		searchText.replace("'", "");
+		
+		String baseEntity = "room";//查询的条件和表
+		String[] properties = new String[] {
+				"room.id," +
+				"roomNo," +
+				"to_houseid," +
+				"house.houseName," +
+				"to_tenant," +
+				"tenant.tenantName," +
+				"house.houseAdress as address," +
+				"rent," +
+				"size," +
+				"status," +
+				"house_type," +
+				"has_WC" 
+		};//查询的列名
+		String joinEntity = "LEFT JOIN house ON room.to_houseid = house.id " +
+				"LEFT JOIN tenant on tenant.id=room.to_tenant " ;
+		String condition="1=1 ";
+		if(StringUtils.isNotBlank(searchText)&&!searchText.equals("undefined")){
+			condition= "and houseName like '%"+searchText+"%' or houseAdress like '%"+searchText+"%' ";
+		}
+		if(StringUtils.isNotBlank(Area)&&!Area.equals("undefined")){
+			condition= " and houseAdress like '%"+Area+"%' ";
+		}
+		if(StringUtils.isNotBlank(rent)&&!rent.equals("undefined")){
+			int a=0,b=0;
+			if(rent.indexOf('-')==-1){
+				int theRent=Integer.parseInt(rent);
+				if(theRent==500){
+					rent="rent<="+theRent;
+				}
+				if(theRent==1500){
+					rent="rent>="+theRent;
+				}
+			}
+			else{
+				String[] rents=rent.split("-");
+				rent="rent >="+rents[0]+" and rent <="+rents[1];
+			}
+			condition= " and "+rent;
+		}
+		if(StringUtils.isNotBlank(type)&&!type.equals("undefined")){
+			condition= " and house_type like '%"+type+"%' ";
+		}if(StringUtils.isNotBlank(houseSize)&&!houseSize.equals("undefined")){
+			int a=0,b=0;
+			if(houseSize.indexOf('-')==-1){
+				int housesize=Integer.parseInt(houseSize);
+				if(housesize==8){
+					houseSize="size<="+housesize;
+				}
+				if(housesize==25){
+					houseSize="size>="+housesize;
+				}
+			}
+			else{
+				String[] housesizes=houseSize.split("-");
+				houseSize="size >="+housesizes[0]+" and size <="+housesizes[1];
+			}
+			condition= " and "+houseSize;
+		}
+		//condition += " and fileinformation.uploaderID = '20170220xiji'";
+		List<Map<String, Object>> result = entityDao.searchForeign(
+				properties, baseEntity, joinEntity, null, condition);
+		
+		int count = entityDao.searchForeign(properties, baseEntity, joinEntity, null, condition).size();
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("total", count);
+		map.put("rows", result);
+		return map;
+	}
 	
 }

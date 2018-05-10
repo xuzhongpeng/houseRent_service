@@ -50,8 +50,15 @@ public class HouseService extends SearchService implements IHouseService{
 	@Override
 	public Map<String,Object> gethouseByid(String id){
 		House house=entityDao.getByID(id, House.class);
-		List<House_pic> pic=entityDao.getByCondition("house_id = '"+id+"'", House_pic.class);
+		
 		List<Room> room=entityDao.getByCondition("to_houseid = '"+id+"'", Room.class);
+		String picCondition="house_id in (''";
+		for(int n=0;n<room.size();n++){
+			String roomid=room.get(n).getId();
+			picCondition+=",'"+roomid+"'";
+		}
+		picCondition+=")";
+		List<House_pic> pic=entityDao.getByCondition(picCondition, House_pic.class);
 		Manager manager=null;
 		float average=0;
 		Map<String, Object> map = new HashMap<String, Object>();

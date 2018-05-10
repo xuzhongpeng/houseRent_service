@@ -112,6 +112,28 @@ public class RoomController{
 		Map<String,Object> a=service.getInfoByID(roomid);
 		return JSONObject.fromObject(a);
 	}
-	
+	@RequestMapping("/getWithCondition")
+	@ResponseBody
+	public JSONObject getWithCondition(String searchText,String Area,String rent,String type,String houseSize) {
+		try{
+			if(Area.equals("不限")){
+				Area="";
+			}
+			if(rent.equals("不限")){
+				rent="";
+			}
+			if(type.equals("不限")){
+				type="";
+			}
+			if(houseSize.equals("不限")){
+				houseSize="";
+			}
+		}
+		catch(Exception e){
+			
+		}
+		Map<String,Object> a=service.getWithCondition(searchText,Area,rent,type,houseSize);
+		return JSONObject.fromObject(a);
+	}
 	
 }

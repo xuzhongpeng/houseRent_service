@@ -84,7 +84,7 @@ public class PictureController{
 				}
 			}			
 		}
-		return JSONObject.fromObject("0");
+		return JSONObject.fromObject("{result:0}");
 	}	
 	@RequestMapping("/getPicByid")
 	@ResponseBody

@@ -16,5 +16,8 @@ public interface IRoomService {
 	Map<String, Object> getRoomInfoByID(String roomid);
 
 	Map<String, Object> getInfoByID(String roomid);
+
+	Map<String, Object> getWithCondition(String searchText, String Area,
+			String rent, String type, String houseSize);
 	
 }

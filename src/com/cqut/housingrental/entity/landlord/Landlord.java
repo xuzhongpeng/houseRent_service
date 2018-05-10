@@ -6,11 +6,12 @@ public class Landlord  extends Entity{
 
 	@ID
 	private String id;
+	private String landlordNo;
 	private String phonenumber;
 	private String password;
 	private String name;
 	private String address;
-	
+	private String is_used;
 	public String getId() {
 		return id;
 	}
@@ -53,7 +54,7 @@ public class Landlord  extends Entity{
 
 	@Override
 	public String toString() {
-		return "Landlord [id=" + id + ", phonenumber=" + phonenumber
+		return "Landlord [id=" + id + ", landlordNo=" + landlordNo+ ", phonenumber=" + phonenumber+ ", is_used=" + is_used
 				+ ", password=" + password + ", name=" + name + ", address="
 				+ address + "]";
 	}
@@ -68,6 +69,22 @@ public class Landlord  extends Entity{
 	public String getPrimaryKey() {
 		// TODO Auto-generated method stub
 		return "id";
+	}
+
+	public String getLandlordNo() {
+		return landlordNo;
+	}
+
+	public void setLandlordNo(String landlordNo) {
+		this.landlordNo = landlordNo;
+	}
+
+	public String getIs_used() {
+		return is_used;
+	}
+
+	public void setIs_used(String is_used) {
+		this.is_used = is_used;
 	}
 
 }
